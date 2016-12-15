@@ -1,12 +1,16 @@
 # XHRCreep.js
 
-A complete wrapper for XMLHttpRequest (and ActiveX) that provides hooks to override and monitor method calls and events on the XHR contructor.
+A complete wrapper for XMLHttpRequest (and ActiveX - for some reason) that provides hooks to override and monitor method calls and events on XHR.
+
+XHRCreep works by re-writing and re-assigning XMLHttpRequest (or ActiveX) with a wrapper class and inserting hooks. The benefit of this is that you can change read-only properties and override and monitor all requests for debugging or analytics purposes. The drawback of this is that it's really easy to tie your code in knots if not used properly.
+
+All by itself, XHRCreep does absolutely nothing. All it does is expose hooks that can be set to be called when other methods/events are called/fired.
 
 ## Bird's Eye View:
 
 XHRCreep looks like this... 
 
-    XHRCreep = {
+        XHRCreep = {
             methods:{
     			notify: {
     				open: function(){},
