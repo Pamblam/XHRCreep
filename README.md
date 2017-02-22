@@ -46,7 +46,7 @@ XHRCreep looks like this...
 
  Provides a set of set of hooks which will be called whenever the equivalent function is called on an XHR instance. Inside these functions, `this` refers to the XHR wrapper. The same arguments passed to the XHR method are passed to the notify function as well.
 
-    XHRCreep.methods.notify.open(){
+    XHRCreep.methods.notify.open=function(){
 		console.log("Requesting "+arguments[0]);
     } 
 
@@ -54,7 +54,7 @@ XHRCreep looks like this...
 
  Provides a set of set of hooks which will be called whenever the equivalent function is called on an XHR instance. Inside these functions, `this` refers to the XHR wrapper. The same arguments passed to the XHR method are passed to the notify function as well. When these functions are used, the wrapper library no longer calls the equivalent function on the real XHR instance, it must be done in the callback itself. The wrapped XHR object is located in `this._xhr`.
 
-    XHRCreep.methods.override.open(){
+    XHRCreep.methods.override.open=function(){
 		console.log("Requesting "+arguments[0]);
 		this._xhr.open.apply(_this, arguments);
     }
